@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FB!!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body style="padding:20px;">
+
+
+<div class="list-group">
+<div href="#" class="list-group-item">
+    <h4 class="list-group-item-heading"><a href="">Follow us on facebook</a></h4>
+  </div>
+  <div href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">List group item heading</h4>
+    <p class="list-group-item-text">...</p>
+  </div>
+  <div href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">List group item heading</h4>
+    <p class="list-group-item-text">...</p>
+  </div>
+  <div href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">List group item heading</h4>
+    <p class="list-group-item-text">...</p>
+  </div>
+</div>
+</body>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.getJSON( 'https://graph.facebook.com/cunyedu/posts?access_token=564966986969833|Mg0XrU8e516tJfYAMwNoCCtCt54', function( data ) {
+		  
+		 	for (var i = 1; i < 4; i++) {
+		  		$(".list-group .list-group-item:eq("+i+") .list-group-item-heading").html(data.data[i].name);
+		  		$(".list-group .list-group-item:eq("+i+") .list-group-item-text").html(data.data[i].message);
+			};
+
+		 //$(".list-group-item-text").html(data.data[0].message);
+		  
+		});
+	});
+</script>
+</html>
